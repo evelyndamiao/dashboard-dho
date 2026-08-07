@@ -10,37 +10,33 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --red:#E30000;--red-light:#fce8e8;
-  --black:#0F0F0F;--black2:#212121;
+  --red:#E30000;--red-light:#fce8e8;--black:#0F0F0F;--black2:#212121;
   --blue:#185FA5;--blue-light:#EBF3FC;
   --green:#1D9E75;--green-light:#E3F5EE;
   --orange:#E07000;--orange-light:#FFF0E0;
-  --purple:#7C3AED;--purple-light:#F3F0FF;
   --bg:#E9E9E9;--surface:#fff;--border:rgba(0,0,0,.1);
   --txt:#0F0F0F;--txt2:#555;--txt3:#888;
   --r-sm:6px;--r-md:10px;--r-lg:14px;
 }
 body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--txt);padding:2rem;font-size:14px;line-height:1.5}
-.wrap{max-width:1200px;margin:0 auto}
+.wrap{max-width:1160px;margin:0 auto}
+
+/* header */
 .hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:12px}
-.hdr-l{display:flex;align-items:center;gap:16px}
-.logo-sq{background:var(--red);color:#fff;font-size:20px;font-weight:800;width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:4px;letter-spacing:-1px;flex-shrink:0}
-.logo-text-wrap{display:flex;flex-direction:column;line-height:1.25}
-.logo-text-top{font-size:11px;font-weight:600;color:var(--txt2);text-transform:uppercase;letter-spacing:.04em}
-.logo-text-bot{font-size:11px;font-weight:500;color:var(--txt3)}
-.hdr-divider{width:1px;height:40px;background:var(--border);margin:0 4px}
-.hdr-title{font-size:20px;font-weight:700;color:var(--black);letter-spacing:-.3px}
-.hdr-sub{font-size:12px;color:var(--txt2);margin-top:3px;font-weight:500}
-.fbar{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:12px 16px;display:flex;align-items:center;gap:14px;margin-bottom:1.5rem;flex-wrap:wrap}
+.hdr-l{display:flex;align-items:center;gap:14px}
+.logo{background:var(--red);color:#fff;font-size:13px;font-weight:600;padding:5px 12px;border-radius:6px;letter-spacing:.05em}
+.hdr-title{font-size:20px;font-weight:700;letter-spacing:-.3px}
+.hdr-sub{font-size:13px;color:var(--txt2);margin-top:2px}
+
+/* filter bar */
+.fbar{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:12px 16px;display:flex;align-items:center;gap:16px;margin-bottom:1.5rem;flex-wrap:wrap}
 .fg{display:flex;align-items:center;gap:8px}
 .flabel{font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
-.fsel{font-family:'Montserrat',sans-serif;font-size:13px;color:var(--txt);border:1px solid var(--border);border-radius:8px;padding:5px 28px 5px 10px;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 8px center;appearance:none;cursor:pointer;min-width:120px}
+.fsel{font-family:'Montserrat',sans-serif;font-size:13px;color:var(--txt);border:1px solid var(--border);border-radius:8px;padding:5px 28px 5px 10px;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 8px center;appearance:none;cursor:pointer;min-width:140px}
 .fsel:focus{outline:none;border-color:var(--red)}
-.fdiv{width:1px;height:24px;background:var(--border);flex-shrink:0}
-.view-btns{display:flex;gap:6px;margin-left:auto}
-.vbtn{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--txt2);cursor:pointer;transition:all .15s}
-.vbtn:hover{background:var(--bg)}
-.vbtn.active{background:var(--black);color:#fff;border-color:var(--black)}
+.fdiv{width:1px;height:24px;background:var(--border)}
+
+/* kpi grid */
 .kgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:1.5rem}
 .kcard{background:var(--surface);border-radius:var(--r-lg);padding:1.25rem 1.5rem;border:1px solid var(--border);position:relative;overflow:hidden}
 .kacc{position:absolute;top:0;left:0;width:100%;height:3px}
@@ -50,12 +46,16 @@ body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--txt);p
 .kmeta{font-size:12px;color:var(--txt3);margin-bottom:12px}
 .ptrack{background:var(--bg);border-radius:99px;height:5px}
 .pfill{height:5px;border-radius:99px}
-.ccard{background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+
+/* charts */
+.ccard{background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--border);padding:1.25rem 1.5rem}
 .ctitle{font-size:14px;font-weight:700}
 .csub{font-size:12px;color:var(--txt2);margin-top:2px;margin-bottom:12px}
 .legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px}
 .li{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--txt2)}
 .ldot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+/* table */
 .tcard{background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
 .thead-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px}
 .tabs{display:flex;gap:6px;flex-wrap:wrap}
@@ -70,12 +70,26 @@ tbody tr:hover td{background:var(--bg)}
 .mgr-name{font-weight:500;cursor:pointer;color:var(--red);text-decoration:underline;text-underline-offset:2px}
 .dbadge{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 8px;border-radius:99px;font-weight:500}
 .ddot{width:6px;height:6px;border-radius:50%}
+.mbar{display:flex;align-items:center;gap:8px}
+.mnum{font-size:13px;font-weight:500;min-width:22px}
+.mtrack{height:5px;border-radius:99px;background:var(--bg);width:60px;flex-shrink:0}
+.mfill{height:5px;border-radius:99px}
 .pill{font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px;display:inline-block}
 .pg{background:#E3F5EE;color:#0F6E56}.pa{background:#FAEEDA;color:#854F0B}.pr{background:#FCEBEB;color:#A32D2D}
+
+/* weekly table */
+.wtcard{background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.week-num{font-size:11px;font-weight:600;min-width:30px}
+.wbar-wrap{display:flex;align-items:center;gap:6px}
+.wnum{font-size:12px;min-width:16px;text-align:right}
+.wtrack{height:6px;border-radius:99px;background:var(--bg);width:50px;flex-shrink:0}
+.wfill{height:6px;border-radius:99px}
+
+/* person view */
 .person-v{display:none}
 .person-v.on{display:block}
 .overview.off{display:none}
-.back-btn{font-family:'Montserrat',sans-serif;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--txt2);border:1px solid var(--border);background:var(--surface);border-radius:8px;padding:6px 12px;cursor:pointer;margin-bottom:1.25rem}
+.back-btn{font-family:'Montserrat',sans-serif;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--txt2);border:1px solid var(--border);background:var(--surface);border-radius:8px;padding:6px 12px;cursor:pointer;margin-bottom:1.25rem;transition:all .15s}
 .back-btn:hover{background:var(--bg)}
 .phdr{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:16px}
 .pav{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;color:#fff;flex-shrink:0}
@@ -85,29 +99,37 @@ tbody tr:hover td{background:var(--bg)}
 .pkcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:1rem 1.25rem}
 .pkval{font-size:28px;font-weight:800;line-height:1;margin-bottom:4px}
 .pklabel{font-size:11px;color:var(--txt2);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+
+/* weekly detail card */
 .wdetail{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem 1.5rem}
-.wrow{display:grid;grid-template-columns:180px 1fr 1fr;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.wrow{display:grid;grid-template-columns:140px 1fr 1fr;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
 .wrow:last-child{border-bottom:none}
 .wlabel{font-size:12px;color:var(--txt2);font-weight:500}
 .wcell{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500}
-@media(max-width:760px){body{padding:1rem}.kgrid,.pkpis{grid-template-columns:1fr}.hdr{flex-direction:column;align-items:flex-start}}
+
+@media(max-width:760px){
+  body{padding:1rem}
+  .kgrid,.crow,.pkpis{grid-template-columns:1fr}
+  .hdr{flex-direction:column;align-items:flex-start}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
+
 <div class="hdr">
   <div class="hdr-l">
     <div style="display:flex;align-items:center;gap:10px">
-      <div class="logo-sq">300</div>
-      <div class="logo-text-wrap">
-        <span class="logo-text-top">Ecossistema</span>
-        <span class="logo-text-bot">300 franchising</span>
+      <div style="background:#E30000;color:#fff;font-size:20px;font-weight:800;font-family:'Montserrat',sans-serif;width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:4px;letter-spacing:-1px;flex-shrink:0">300</div>
+      <div style="display:flex;flex-direction:column;line-height:1.25">
+        <span style="font-size:11px;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.04em">Ecossistema</span>
+        <span style="font-size:11px;font-weight:500;color:#888">300 franchising</span>
       </div>
     </div>
-    <div class="hdr-divider"></div>
+    <div style="width:1px;height:40px;background:rgba(0,0,0,.12);margin:0 8px"></div>
     <div>
       <div class="hdr-title">Dashboard DHO</div>
-      <div class="hdr-sub">Feedbacks · 1:1 · Evolução de PDI</div>
+      <div class="hdr-sub">Feedbacks · 1:1 por semana — Abril a Junho 2026</div>
     </div>
   </div>
 </div>
@@ -115,15 +137,6 @@ tbody tr:hover td{background:var(--bg)}
 <!-- Filter bar -->
 <div class="fbar">
   <div class="fg" id="fgSemana">
-    <span class="flabel">Semestre</span>
-    <select class="fsel" id="fSemestre" onchange="onSemestreChange()">
-      <option value="all">Ambos</option>
-      <option value="1° Sem 2026">1° Sem 2026</option>
-      <option value="2° Sem 2026">2° Sem 2026</option>
-    </select>
-  </div>
-  <div class="fdiv" id="fdiv1"></div>
-  <div class="fg" id="fgMes">
     <span class="flabel">Mês</span>
     <select class="fsel" id="fMes" onchange="onMesChange()">
       <option value="all">Todos os meses</option>
@@ -137,7 +150,16 @@ tbody tr:hover td{background:var(--bg)}
       <option value="Agosto">Agosto</option>
     </select>
   </div>
-  <div class="fdiv" id="fdiv2"></div>
+  <div class="fdiv" id="fdivSemestre"></div>
+  <div class="fg" id="fgSemestre">
+    <span class="flabel">Semestre</span>
+    <select class="fsel" id="fSemestre" onchange="onSemestreChange()">
+      <option value="all">Ambos</option>
+      <option value="1° Sem 2026">1° Sem 2026</option>
+      <option value="2° Sem 2026">2° Sem 2026</option>
+    </select>
+  </div>
+  <div class="fdiv" id="fdivSemana"></div>
   <div class="fg" id="fgSemanaInner">
     <span class="flabel">Semana</span>
     <select class="fsel" id="fSemana" onchange="applyFilters()">
@@ -176,7 +198,7 @@ tbody tr:hover td{background:var(--bg)}
       <option value="03/08 a 07/08/2026">03/08 a 07/08/2026</option>
     </select>
   </div>
-  <div class="fdiv" id="fdiv3"></div>
+  <div class="fdiv" id="fdiv1"></div>
   <div class="fg" id="fgDir">
     <span class="flabel">Diretoria</span>
     <select class="fsel" id="fDir" onchange="applyFilters()">
@@ -187,21 +209,23 @@ tbody tr:hover td{background:var(--bg)}
       <option value="Mentoria">Mentoria</option>
     </select>
   </div>
-  <div class="fdiv" id="fdiv4"></div>
+  <div class="fdiv" id="fdiv2"></div>
   <div class="fg" id="fgPessoa">
     <span class="flabel">Pessoa</span>
     <select class="fsel" id="fPessoa" onchange="applyPersonFilter()">
       <option value="all">Todos os gestores</option>
     </select>
   </div>
-  <div class="view-btns">
-    <button class="vbtn active" id="btnVisao" onclick="setMainView('overview')">Feedbacks &amp; 1:1</button>
-    <button class="vbtn" id="btnPdiView" onclick="setMainView('pdi')">PDI &amp; Trilhas</button>
+  <div style="margin-left:auto;display:flex;gap:6px">
+    <button class="tab active" id="btnVisao" onclick="setMainView('overview')" style="border-radius:8px">Feedbacks & 1:1</button>
+    <button class="tab" id="btnPdiView" onclick="setMainView('pdi')" style="border-radius:8px">PDI & Trilhas</button>
   </div>
 </div>
 
 <!-- Overview -->
 <div class="overview" id="overviewSection">
+
+  <!-- KPIs -->
   <div class="kgrid">
     <div class="kcard">
       <div class="kacc" style="background:var(--red)"></div>
@@ -235,7 +259,8 @@ tbody tr:hover td{background:var(--bg)}
     </div>
   </div>
 
-  <div class="ccard">
+  <!-- Charts -->
+  <div class="ccard" style="margin-bottom:1.5rem">
     <div class="ctitle">Evolução semanal</div>
     <div class="csub">Registros acumulados por semana</div>
     <div class="legend">
@@ -245,10 +270,11 @@ tbody tr:hover td{background:var(--bg)}
     <div style="position:relative;height:220px"><canvas id="cEvo"></canvas></div>
   </div>
 
+  <!-- Manager table -->
   <div class="tcard">
     <div class="thead-row">
       <div>
-        <div style="font-size:15px;font-weight:700">Detalhe por gestor</div>
+        <div style="font-size:15px;font-weight:600">Detalhe por gestor</div>
         <div style="font-size:12px;color:var(--txt2);margin-top:2px">Clique no nome para ver detalhe semanal</div>
       </div>
       <div class="tabs" id="dirTabs">
@@ -270,8 +296,22 @@ tbody tr:hover td{background:var(--bg)}
   </div>
 </div>
 
-<!-- PDI Section -->
+<!-- Person view -->
+<div class="person-v" id="personSection">
+  <button class="back-btn" onclick="closePersonView()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Voltar para visão geral
+  </button>
+  <div class="phdr" id="pHdr"></div>
+  <div class="pkpis" id="pKpis"></div>
+  <div class="wdetail" id="wDetail"></div>
+</div>
+
+
+<!-- PDI & Trilhas Section -->
 <div id="pdiMainSection" style="display:none">
+
+  <!-- PDI own filter bar -->
   <div class="fbar" style="margin-bottom:1.5rem">
     <div class="fg">
       <span class="flabel">Tipo de PDI</span>
@@ -289,26 +329,28 @@ tbody tr:hover td{background:var(--bg)}
       </select>
     </div>
   </div>
+
+  <!-- PDI KPIs -->
   <div class="kgrid" id="pdiKpiGrid" style="margin-bottom:1.5rem">
     <div class="kcard">
-      <div class="kacc" style="background:var(--purple)"></div>
-      <div class="kicon" style="background:var(--purple-light);color:var(--purple)">
+      <div class="kacc" style="background:#7C3AED"></div>
+      <div class="kicon" style="background:#F3F0FF;color:#7C3AED">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
       </div>
       <div class="klabel">PDI Individual</div>
-      <div class="kval" id="kPdiTotal" style="color:var(--purple)">—</div>
+      <div class="kval" id="kPdiTotal" style="color:#7C3AED">—</div>
       <div class="kmeta" id="kPdiMeta">colaboradores com plano</div>
-      <div class="ptrack"><div class="pfill" id="kPdiBar" style="background:var(--purple)"></div></div>
+      <div class="ptrack"><div class="pfill" id="kPdiBar" style="background:#7C3AED"></div></div>
     </div>
     <div class="kcard">
-      <div class="kacc" style="background:var(--orange)"></div>
-      <div class="kicon" style="background:var(--orange-light);color:var(--orange)">
+      <div class="kacc" style="background:#E07000"></div>
+      <div class="kicon" style="background:#FFF0E0;color:#E07000">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       </div>
       <div class="klabel">Trilhas de Desenvolvimento</div>
-      <div class="kval" id="kTriTotal" style="color:var(--orange)">—</div>
+      <div class="kval" id="kTriTotal" style="color:#E07000">—</div>
       <div class="kmeta" id="kTriMeta">colaboradores em trilha</div>
-      <div class="ptrack"><div class="pfill" id="kTriBar" style="background:var(--orange)"></div></div>
+      <div class="ptrack"><div class="pfill" id="kTriBar" style="background:#E07000"></div></div>
     </div>
     <div class="kcard">
       <div class="kacc" style="background:var(--green)"></div>
@@ -321,47 +363,65 @@ tbody tr:hover td{background:var(--bg)}
       <div class="ptrack"><div class="pfill" id="kPdiProgBar" style="background:var(--green)"></div></div>
     </div>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:1.5rem">
-    <div class="tcard" style="margin-bottom:0" id="pdiTableWrap">
-      <div style="font-size:15px;font-weight:700;margin-bottom:4px">PDI Individual</div>
-      <div style="font-size:12px;color:var(--txt2);margin-bottom:14px">Planos de desenvolvimento por gestor</div>
-      <table><thead><tr><th>Gestor</th><th>Colab.</th><th>Progresso</th><th>Status</th></tr></thead>
-      <tbody id="pdiTableBody"></tbody></table>
+
+  <!-- PDI Tables row -->
+  <div class="crow" style="margin-bottom:1.5rem">
+    <!-- PDI Individual -->
+    <div class="tcard" style="margin-bottom:0">
+      <div class="thead-row">
+        <div>
+          <div style="font-size:15px;font-weight:700">PDI Individual</div>
+          <div style="font-size:12px;color:var(--txt2);margin-top:2px">Planos de desenvolvimento por gestor</div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Gestor</th><th>Colab.</th><th>Progresso</th><th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="pdiTableBody"></tbody>
+      </table>
     </div>
-    <div class="tcard" style="margin-bottom:0" id="triTableWrap">
-      <div style="font-size:15px;font-weight:700;margin-bottom:4px">Trilhas de Desenvolvimento</div>
-      <div style="font-size:12px;color:var(--txt2);margin-bottom:14px">Progresso por gestor</div>
-      <table><thead><tr><th>Gestor</th><th>Colab.</th><th>Progresso</th><th>Concluídas</th></tr></thead>
-      <tbody id="triTableBody"></tbody></table>
+
+    <!-- Trilhas -->
+    <div class="tcard" style="margin-bottom:0">
+      <div class="thead-row">
+        <div>
+          <div style="font-size:15px;font-weight:700">Trilhas de Desenvolvimento</div>
+          <div style="font-size:12px;color:var(--txt2);margin-top:2px">Progresso por gestor</div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Gestor</th><th>Colab.</th><th>Progresso</th><th>Concluídas</th>
+          </tr>
+        </thead>
+        <tbody id="triTableBody"></tbody>
+      </table>
     </div>
   </div>
+
+  <!-- PDI by gestor detail cards -->
   <div class="tcard">
     <div style="font-size:15px;font-weight:700;margin-bottom:4px">Detalhe por colaborador</div>
-    <div style="font-size:12px;color:var(--txt2);margin-bottom:16px">PDI Individual e Trilhas ativas</div>
+    <div style="font-size:12px;color:var(--txt2);margin-bottom:16px">PDI Individual e Trilhas ativas — clique no gestor para expandir</div>
     <div id="pdiDetailGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px"></div>
   </div>
-</div>
 
-<!-- Person view -->
-<div class="person-v" id="personSection">
-  <button class="back-btn" onclick="closePersonView()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-    Voltar para visão geral
-  </button>
-  <div class="phdr" id="pHdr"></div>
-  <div class="pkpis" id="pKpis"></div>
-  <div class="wdetail" id="wDetail"></div>
 </div>
 </div>
 
 <script>
-const PDI_DATA = {"pdi": {"BRUNA GOMES DE OLIVEIRA": {"total": 2, "prog": 100, "concluidos": 2, "atrasados": 0, "em_andamento": 0, "colabs": [{"nome": "Diogo Guareschi", "progresso": 100, "status": "Concluído", "planos": 1}, {"nome": "Silvia Paula Santana Meisen", "progresso": 100, "status": "Concluído", "planos": 1}]}, "MAXMILLIAN LOPES DA COSTA": {"total": 1, "prog": 0, "concluidos": 0, "atrasados": 0, "em_andamento": 1, "colabs": [{"nome": "Douglas Marciano", "progresso": 0, "status": "Em andamento", "planos": 1}]}, "REGINALDO FERNANDES DE SOUZA JUNIOR": {"total": 3, "prog": 100, "concluidos": 3, "atrasados": 0, "em_andamento": 0, "colabs": [{"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "status": "Concluído", "planos": 1}, {"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "status": "Concluído", "planos": 1}, {"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "status": "Concluído", "planos": 1}]}, "RONALDO CAMARGO": {"total": 1, "prog": 0, "concluidos": 0, "atrasados": 0, "em_andamento": 1, "colabs": [{"nome": "Beatriz Correa dos Santos Fedrigo Gonçalves", "progresso": 0, "status": "Em andamento", "planos": 1}]}, "RONALDO CAMARGO JUNIOR": {"total": 3, "prog": 5, "concluidos": 0, "atrasados": 0, "em_andamento": 3, "colabs": [{"nome": "Deivyd Henrique dos S. Correia", "progresso": 0, "status": "Em andamento", "planos": 1}, {"nome": "Edina Kath", "progresso": 14, "status": "Em andamento", "planos": 1}, {"nome": "Rosemary Ap. de Oliveira", "progresso": 0, "status": "Em andamento", "planos": 1}]}, "ROSEMARY AP DE OLIVEIRA": {"total": 1, "prog": 0, "concluidos": 0, "atrasados": 0, "em_andamento": 1, "colabs": [{"nome": "Maxmillian Lopes da Costa", "progresso": 0, "status": "Em andamento", "planos": 1}]}}, "trilhas": {"BEATRIS HEIDEMANN": {"total": 4, "prog": 70, "concluidas": 1, "colabs": [{"nome": "Diego Almeida dos Santos", "progresso": 62, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "Franciele Vitória Simão", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Franciele Vitória Simão", "progresso": 77, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}, {"nome": "Pedro Henrique Guimarães Carius", "progresso": 43, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "BEATRIZ CORREA DOS SANTOS FEDRIGO GONCALVES": {"total": 2, "prog": 0, "concluidas": 0, "colabs": [{"nome": "Dielly Michels Cabral Wohlke", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Kallel Ajala Mota", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "BRUNA GOMES DE OLIVEIRA": {"total": 2, "prog": 92, "concluidas": 1, "colabs": [{"nome": "Diogo Guareschi", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["PDI para Vendedores"]}, {"nome": "Silvia Paula Santana Meisen", "progresso": 83, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}]}, "DIEGO LOPES DE BRITO": {"total": 3, "prog": 100, "concluidas": 3, "colabs": [{"nome": "Giovana Vitória Oliveira Brand", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Maria Helena Flores Teixeira", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Paula Pikcius", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}]}, "EDINA KATH": {"total": 3, "prog": 52, "concluidas": 1, "colabs": [{"nome": "André Custódio da Silva", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "Djeverson Damian da Silva", "progresso": 57, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "Kleber de Oliveira", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["PDI Gerentes"]}]}, "ELIAS LARANJEIRA FRIOLIM": {"total": 3, "prog": 19, "concluidas": 0, "colabs": [{"nome": "Jian Rafael de Lorena", "progresso": 47, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "João Vitor da Paixão", "progresso": 11, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}, {"nome": "Mirian Vitória Sansão", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}]}, "JULIA RUNZE": {"total": 1, "prog": 12, "concluidas": 0, "colabs": [{"nome": "Raquel Geisiane Ribeiro Costa", "progresso": 12, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI de Liderança (Vendas)"]}]}, "JULIANA SPERANDIO": {"total": 3, "prog": 29, "concluidas": 0, "colabs": [{"nome": "Natanael Luiz dos Santos", "progresso": 38, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Romário Nascimento do Rozário", "progresso": 17, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Tainara Américo da Silva", "progresso": 32, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "KLEBER DE OLIVEIRA": {"total": 3, "prog": 44, "concluidas": 1, "colabs": [{"nome": "Carlos Daniel Menezes Mar", "progresso": 31, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Carlos Daniel Menezes Mar", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Ryan Medeiros Pierote", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "MAXMILLIAN LOPES DA COSTA": {"total": 2, "prog": 5, "concluidas": 0, "colabs": [{"nome": "Douglas Marciano", "progresso": 10, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Matheus Henrique da Silva Quintana", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}]}, "REGINALDO FERNANDES DE SOUZA JUNIOR": {"total": 3, "prog": 67, "concluidas": 2, "colabs": [{"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Upskill Especialista"]}, {"nome": "Maria Eduarda de Lima Tibes", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "RODRIGO RAMOS": {"total": 4, "prog": 62, "concluidas": 2, "colabs": [{"nome": "Gisele Cardozo de Assis", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["PDI para Vendedores"]}, {"nome": "Laryssa Novitzki Heiden", "progresso": 27, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI de Liderança (Vendas)"]}, {"nome": "Laryssa Novitzki Heiden", "progresso": 21, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "Laryssa Novitzki Heiden", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}]}, "RONALDO CAMARGO": {"total": 5, "prog": 26, "concluidas": 1, "colabs": [{"nome": "Beatriz Correa dos Santos Fedrigo Gonçalves", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI Gerentes"]}, {"nome": "Carlos Eduardo Dias da Costa", "progresso": 12, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI de Liderança (Vendas)"]}, {"nome": "Carlos Eduardo Dias da Costa", "progresso": 7, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}, {"nome": "Fernando Rodrigues de Souza", "progresso": 9, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI de Liderança (Vendas)"]}, {"nome": "Yasmin Ribeiro do Nascimento", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["PDI para Vendedores"]}]}, "ROSEMARY AP DE OLIVEIRA": {"total": 1, "prog": 38, "concluidas": 0, "colabs": [{"nome": "Bruna Gomes de Oliveira", "progresso": 38, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}]}}};
+
+// ── PDI DATA ──
+const PDI_DATA = {"pdi": {"BRUNA GOMES DE OLIVEIRA": {"total": 2, "prog": 100, "concluidos": 2, "atrasados": 0, "em_andamento": 0, "colabs": [{"nome": "Diogo Guareschi", "progresso": 100, "status": "Concluído", "planos": 1}, {"nome": "Silvia Paula Santana Meisen", "progresso": 100, "status": "Concluído", "planos": 1}]}, "MAXMILLIAN LOPES DA COSTA": {"total": 1, "prog": 0, "concluidos": 0, "atrasados": 0, "em_andamento": 1, "colabs": [{"nome": "Douglas Marciano", "progresso": 0, "status": "Em andamento", "planos": 1}]}, "REGINALDO FERNANDES DE SOUZA JUNIOR": {"total": 3, "prog": 100, "concluidos": 3, "atrasados": 0, "em_andamento": 0, "colabs": [{"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "status": "Concluído", "planos": 1}, {"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "status": "Concluído", "planos": 1}, {"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "status": "Concluído", "planos": 1}]}, "RONALDO CAMARGO": {"total": 1, "prog": 0, "concluidos": 0, "atrasados": 0, "em_andamento": 1, "colabs": [{"nome": "Beatriz Correa dos Santos Fedrigo Gonçalves", "progresso": 0, "status": "Em andamento", "planos": 1}]}, "RONALDO CAMARGO JUNIOR": {"total": 3, "prog": 5, "concluidos": 0, "atrasados": 0, "em_andamento": 3, "colabs": [{"nome": "Deivyd Henrique dos S. Correia", "progresso": 0, "status": "Em andamento", "planos": 1}, {"nome": "Edina Kath", "progresso": 14, "status": "Em andamento", "planos": 1}, {"nome": "Rosemary Ap. de Oliveira", "progresso": 0, "status": "Em andamento", "planos": 1}]}, "ROSEMARY AP DE OLIVEIRA": {"total": 1, "prog": 0, "concluidos": 0, "atrasados": 0, "em_andamento": 1, "colabs": [{"nome": "Maxmillian Lopes da Costa", "progresso": 0, "status": "Em andamento", "planos": 1}]}}, "trilhas": {"BEATRIS HEIDEMANN": {"total": 4, "prog": 70, "concluidas": 1, "colabs": [{"nome": "Diego Almeida dos Santos", "progresso": 62, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "Franciele Vitória Simão", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Franciele Vitória Simão", "progresso": 77, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}, {"nome": "Pedro Henrique Guimarães Carius", "progresso": 43, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "BEATRIZ CORREA DOS SANTOS FEDRIGO GONCALVES": {"total": 2, "prog": 0, "concluidas": 0, "colabs": [{"nome": "Dielly Michels Cabral Wohlke", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Kallel Ajala Mota", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "BRUNA GOMES DE OLIVEIRA": {"total": 2, "prog": 92, "concluidas": 1, "colabs": [{"nome": "Diogo Guareschi", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["PDI para Vendedores"]}, {"nome": "Silvia Paula Santana Meisen", "progresso": 83, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}]}, "DIEGO LOPES DE BRITO": {"total": 3, "prog": 100, "concluidas": 3, "colabs": [{"nome": "Giovana Vitória Oliveira Brand", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Maria Helena Flores Teixeira", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Paula Pikcius", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}]}, "EDINA KATH": {"total": 3, "prog": 52, "concluidas": 1, "colabs": [{"nome": "André Custódio da Silva", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "Djeverson Damian da Silva", "progresso": 57, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "Kleber de Oliveira", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["PDI Gerentes"]}]}, "ELIAS LARANJEIRA FRIOLIM": {"total": 3, "prog": 19, "concluidas": 0, "colabs": [{"nome": "Jian Rafael de Lorena", "progresso": 47, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "João Vitor da Paixão", "progresso": 11, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}, {"nome": "Mirian Vitória Sansão", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}]}, "JULIA RUNZE": {"total": 1, "prog": 12, "concluidas": 0, "colabs": [{"nome": "Raquel Geisiane Ribeiro Costa", "progresso": 12, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI de Liderança (Vendas)"]}]}, "JULIANA SPERANDIO": {"total": 3, "prog": 29, "concluidas": 0, "colabs": [{"nome": "Natanael Luiz dos Santos", "progresso": 38, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Romário Nascimento do Rozário", "progresso": 17, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Tainara Américo da Silva", "progresso": 32, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "KLEBER DE OLIVEIRA": {"total": 3, "prog": 44, "concluidas": 1, "colabs": [{"nome": "Carlos Daniel Menezes Mar", "progresso": 31, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Carlos Daniel Menezes Mar", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Ryan Medeiros Pierote", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "MAXMILLIAN LOPES DA COSTA": {"total": 2, "prog": 5, "concluidas": 0, "colabs": [{"nome": "Douglas Marciano", "progresso": 10, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}, {"nome": "Matheus Henrique da Silva Quintana", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}]}, "REGINALDO FERNANDES DE SOUZA JUNIOR": {"total": 3, "prog": 67, "concluidas": 2, "colabs": [{"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}, {"nome": "Alisson Cezar Silva Barroso", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Upskill Especialista"]}, {"nome": "Maria Eduarda de Lima Tibes", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Vendedores"]}]}, "RODRIGO RAMOS": {"total": 4, "prog": 62, "concluidas": 2, "colabs": [{"nome": "Gisele Cardozo de Assis", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["PDI para Vendedores"]}, {"nome": "Laryssa Novitzki Heiden", "progresso": 27, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI de Liderança (Vendas)"]}, {"nome": "Laryssa Novitzki Heiden", "progresso": 21, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}, {"nome": "Laryssa Novitzki Heiden", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["Somos Inconformados"]}]}, "RONALDO CAMARGO": {"total": 5, "prog": 26, "concluidas": 1, "colabs": [{"nome": "Beatriz Correa dos Santos Fedrigo Gonçalves", "progresso": 0, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI Gerentes"]}, {"nome": "Carlos Eduardo Dias da Costa", "progresso": 12, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI de Liderança (Vendas)"]}, {"nome": "Carlos Eduardo Dias da Costa", "progresso": 7, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["Upskill Especialista"]}, {"nome": "Fernando Rodrigues de Souza", "progresso": 9, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI de Liderança (Vendas)"]}, {"nome": "Yasmin Ribeiro do Nascimento", "progresso": 100, "trilhas": 1, "trilhas_ok": 1, "pct_ok": 100, "nomes": ["PDI para Vendedores"]}]}, "ROSEMARY AP DE OLIVEIRA": {"total": 1, "prog": 38, "concluidas": 0, "colabs": [{"nome": "Bruna Gomes de Oliveira", "progresso": 38, "trilhas": 1, "trilhas_ok": 0, "pct_ok": 0, "nomes": ["PDI para Gerentes"]}]}}}
+
 const TEAMS = {"ANDRE CUSTODIO DA SILVA": 2, "BEATRIS HEIDEMANN": 1, "BEATRIZ CORREA DOS SANTOS FEDRIGO GONCALVES": 2, "BRUNA GOMES DE OLIVEIRA": 1, "DIEGO LOPES DE BRITO": 4, "DJEVERSON DAMIAN DA SILVA": 1, "ELIAS LARANJEIRA FRIOLIM": 3, "JULIA RUNZE": 3, "JULIANA SPERANDIO": 4, "KLEBER DE OLIVEIRA": 2, "MAXMILLIAN LOPES DA COSTA": 3, "REGINALDO FERNANDES DE SOUZA JUNIOR": 2, "RONALDO CAMARGO": 1, "EDINA KATH": 4, "ROSEMARY AP DE OLIVEIRA": 4};
 const RAW = {"semanas": ["29/12 a 02/01/2026", "05/01 a 09/01/2026", "12/01 a 16/01/2026", "19/01 a 23/01/2026", "26/01 a 30/01/2026", "02/02 a 06/02/2026", "09/02 a 13/02/2026", "16/02 a 20/02/2026", "23/02 a 27/02/2026", "02/03 a 06/03/2026", "09/03 a 13/03/2026", "16/03 a 20/03/2026", "23/03 a 27/03/2026", "30/03 a 03/04/2026", "06/04 a 10/04/2026", "13/04 a 17/04/2026", "20/04 a 24/04/2026", "27/04 a 01/05/2026", "04/05 a 08/05/2026", "11/05 a 15/05/2026", "18/05 a 22/05/2026", "25/05 a 29/05/2026", "01/06 a 05/06/2026", "08/06 a 12/06/2026", "15/06 a 19/06/2026", "22/06 a 26/06/2026", "29/06 a 03/07/2026", "06/07 a 10/07/2026", "13/07 a 17/07/2026", "20/07 a 24/07/2026", "27/07 a 31/07/2026", "03/08 a 07/08/2026"], "managers": [{"name": "André Silva", "full": "André Custódio da Silva", "diretoria": "Fúria", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 0, "one": 0}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 0}, "02/02 a 06/02/2026": {"fb": 0, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 1, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 0, "one": 0}, "04/05 a 08/05/2026": {"fb": 0, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 0}, "29/06 a 03/07/2026": {"fb": 0, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 0, "one": 0}}, "total_fb": 1, "total_one": 0}, {"name": "Beatris Heidemann", "full": "Beatris Heidemann", "diretoria": "Guardiões", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 2, "one": 0}, "05/01 a 09/01/2026": {"fb": 0, "one": 1}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 1}, "02/02 a 06/02/2026": {"fb": 1, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 3, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 0, "one": 0}, "04/05 a 08/05/2026": {"fb": 2, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 1, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 0}, "29/06 a 03/07/2026": {"fb": 3, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 0, "one": 0}}, "total_fb": 12, "total_one": 2}, {"name": "Beatriz Gonçalves", "full": "Beatriz Correa dos Santos Fedrigo Gonçalves", "diretoria": "Mentoria", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 0, "one": 2}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 5}, "02/02 a 06/02/2026": {"fb": 0, "one": 1}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 4}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 1, "one": 4}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 7}, "23/03 a 27/03/2026": {"fb": 0, "one": 2}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 6}, "27/04 a 01/05/2026": {"fb": 0, "one": 1}, "04/05 a 08/05/2026": {"fb": 0, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 1}, "25/05 a 29/05/2026": {"fb": 0, "one": 3}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 4}, "29/06 a 03/07/2026": {"fb": 0, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 3, "one": 0}}, "total_fb": 4, "total_one": 40}, {"name": "Bruna Oliveira", "full": "Bruna Gomes de Oliveira", "diretoria": "Guardiões", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 2, "one": 0}, "05/01 a 09/01/2026": {"fb": 1, "one": 0}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 0}, "02/02 a 06/02/2026": {"fb": 6, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 1, "one": 1}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 1}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 2}, "27/04 a 01/05/2026": {"fb": 0, "one": 2}, "04/05 a 08/05/2026": {"fb": 3, "one": 2}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 2}, "25/05 a 29/05/2026": {"fb": 0, "one": 3}, "01/06 a 05/06/2026": {"fb": 4, "one": 3}, "08/06 a 12/06/2026": {"fb": 0, "one": 3}, "15/06 a 19/06/2026": {"fb": 0, "one": 3}, "22/06 a 26/06/2026": {"fb": 0, "one": 3}, "29/06 a 03/07/2026": {"fb": 1, "one": 3}, "06/07 a 10/07/2026": {"fb": 0, "one": 2}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 2, "one": 4}}, "total_fb": 20, "total_one": 34}, {"name": "Diego Brito", "full": "Diego Lopes de Brito", "diretoria": "Camaleões", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 2, "one": 3}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 0}, "02/02 a 06/02/2026": {"fb": 2, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 2, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 1, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 1, "one": 0}, "04/05 a 08/05/2026": {"fb": 0, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 0}, "29/06 a 03/07/2026": {"fb": 1, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 1, "one": 0}}, "total_fb": 10, "total_one": 3}, {"name": "Djeverson Silva", "full": "Djeverson Damian da Silva", "diretoria": "Fúria", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 4, "one": 0}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 0}, "02/02 a 06/02/2026": {"fb": 0, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 4, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 1}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 3, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 0, "one": 2}, "04/05 a 08/05/2026": {"fb": 1, "one": 2}, "11/05 a 15/05/2026": {"fb": 0, "one": 3}, "18/05 a 22/05/2026": {"fb": 0, "one": 1}, "25/05 a 29/05/2026": {"fb": 0, "one": 2}, "01/06 a 05/06/2026": {"fb": 0, "one": 2}, "08/06 a 12/06/2026": {"fb": 0, "one": 2}, "15/06 a 19/06/2026": {"fb": 0, "one": 1}, "22/06 a 26/06/2026": {"fb": 0, "one": 1}, "29/06 a 03/07/2026": {"fb": 0, "one": 1}, "06/07 a 10/07/2026": {"fb": 1, "one": 2}, "13/07 a 17/07/2026": {"fb": 0, "one": 1}, "20/07 a 24/07/2026": {"fb": 0, "one": 1}, "27/07 a 31/07/2026": {"fb": 0, "one": 1}, "03/08 a 07/08/2026": {"fb": 4, "one": 0}}, "total_fb": 17, "total_one": 23}, {"name": "Edina Kath", "full": "Edina Kath", "diretoria": "Fúria", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 1, "one": 0}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 1}, "02/02 a 06/02/2026": {"fb": 7, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 0, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 1, "one": 0}, "04/05 a 08/05/2026": {"fb": 1, "one": 1}, "11/05 a 15/05/2026": {"fb": 0, "one": 3}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 0}, "29/06 a 03/07/2026": {"fb": 0, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 0, "one": 0}}, "total_fb": 10, "total_one": 5}, {"name": "Elias Friolim", "full": "Elias Laranjeira Friolim", "diretoria": "Camaleões", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 1, "one": 4}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 0}, "02/02 a 06/02/2026": {"fb": 2, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 2}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 4, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 4, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 4, "one": 0}, "04/05 a 08/05/2026": {"fb": 1, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 1, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 0}, "29/06 a 03/07/2026": {"fb": 0, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 0, "one": 0}}, "total_fb": 17, "total_one": 6}, {"name": "Julia Runze", "full": "Julia Runze", "diretoria": "Fúria", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 0, "one": 0}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 0}, "02/02 a 06/02/2026": {"fb": 1, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 0, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 1, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 0, "one": 0}, "04/05 a 08/05/2026": {"fb": 1, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 3, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 0}, "29/06 a 03/07/2026": {"fb": 0, "one": 0}, "06/07 a 10/07/2026": {"fb": 1, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 0, "one": 0}}, "total_fb": 7, "total_one": 0}, {"name": "Juliana Sperandio", "full": "Juliana Sperandio", "diretoria": "Camaleões", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 0, "one": 4}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 2}, "26/01 a 30/01/2026": {"fb": 0, "one": 3}, "02/02 a 06/02/2026": {"fb": 1, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 1, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 1}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 3, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 2, "one": 0}, "04/05 a 08/05/2026": {"fb": 2, "one": 4}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 34}, "29/06 a 03/07/2026": {"fb": 1, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 2, "one": 0}}, "total_fb": 12, "total_one": 48}, {"name": "Kleber Oliveira", "full": "Kleber de Oliveira", "diretoria": "Fúria", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 2, "one": 0}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 2}, "02/02 a 06/02/2026": {"fb": 2, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 2}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 3, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 3, "one": 0}, "04/05 a 08/05/2026": {"fb": 0, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 2, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 0}, "29/06 a 03/07/2026": {"fb": 1, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 1, "one": 0}}, "total_fb": 14, "total_one": 4}, {"name": "Maxmillian Costa", "full": "Maxmillian Lopes da Costa", "diretoria": "Guardiões", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 1, "one": 1}, "12/01 a 16/01/2026": {"fb": 0, "one": 3}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 0}, "02/02 a 06/02/2026": {"fb": 1, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 1, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 1, "one": 0}, "06/04 a 10/04/2026": {"fb": 1, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 1, "one": 0}, "04/05 a 08/05/2026": {"fb": 0, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 1}, "01/06 a 05/06/2026": {"fb": 0, "one": 2}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 12}, "29/06 a 03/07/2026": {"fb": 2, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 1}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 0, "one": 0}}, "total_fb": 8, "total_one": 20}, {"name": "Reginaldo Junior", "full": "Reginaldo Fernandes de Souza Junior", "diretoria": "Camaleões", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 0, "one": 4}, "12/01 a 16/01/2026": {"fb": 0, "one": 2}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 5}, "02/02 a 06/02/2026": {"fb": 0, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 2, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 1, "one": 11}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 1, "one": 0}, "04/05 a 08/05/2026": {"fb": 0, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 0}, "29/06 a 03/07/2026": {"fb": 0, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 0, "one": 0}}, "total_fb": 4, "total_one": 22}, {"name": "Ronaldo Camargo", "full": "Ronaldo Camargo", "diretoria": "Guardiões", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 0, "one": 0}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 0}, "02/02 a 06/02/2026": {"fb": 1, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 1, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 0}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 0, "one": 0}, "04/05 a 08/05/2026": {"fb": 0, "one": 4}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 3}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 1}, "29/06 a 03/07/2026": {"fb": 0, "one": 3}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 1}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 0, "one": 0}}, "total_fb": 2, "total_one": 12}, {"name": "Rosemary Oliveira", "full": "Rosemary Ap. de Oliveira", "diretoria": "Guardiões", "nivel": "Gestor", "weekly": {"29/12 a 02/01/2026": {"fb": 0, "one": 0}, "05/01 a 09/01/2026": {"fb": 0, "one": 0}, "12/01 a 16/01/2026": {"fb": 0, "one": 0}, "19/01 a 23/01/2026": {"fb": 0, "one": 0}, "26/01 a 30/01/2026": {"fb": 0, "one": 0}, "02/02 a 06/02/2026": {"fb": 0, "one": 0}, "09/02 a 13/02/2026": {"fb": 0, "one": 0}, "16/02 a 20/02/2026": {"fb": 0, "one": 0}, "23/02 a 27/02/2026": {"fb": 0, "one": 0}, "02/03 a 06/03/2026": {"fb": 0, "one": 0}, "09/03 a 13/03/2026": {"fb": 0, "one": 3}, "16/03 a 20/03/2026": {"fb": 0, "one": 0}, "23/03 a 27/03/2026": {"fb": 0, "one": 0}, "30/03 a 03/04/2026": {"fb": 0, "one": 0}, "06/04 a 10/04/2026": {"fb": 0, "one": 0}, "13/04 a 17/04/2026": {"fb": 0, "one": 0}, "20/04 a 24/04/2026": {"fb": 0, "one": 0}, "27/04 a 01/05/2026": {"fb": 0, "one": 0}, "04/05 a 08/05/2026": {"fb": 0, "one": 0}, "11/05 a 15/05/2026": {"fb": 0, "one": 0}, "18/05 a 22/05/2026": {"fb": 0, "one": 0}, "25/05 a 29/05/2026": {"fb": 0, "one": 0}, "01/06 a 05/06/2026": {"fb": 0, "one": 0}, "08/06 a 12/06/2026": {"fb": 0, "one": 0}, "15/06 a 19/06/2026": {"fb": 0, "one": 0}, "22/06 a 26/06/2026": {"fb": 0, "one": 0}, "29/06 a 03/07/2026": {"fb": 0, "one": 0}, "06/07 a 10/07/2026": {"fb": 0, "one": 0}, "13/07 a 17/07/2026": {"fb": 0, "one": 0}, "20/07 a 24/07/2026": {"fb": 0, "one": 0}, "27/07 a 31/07/2026": {"fb": 0, "one": 0}, "03/08 a 07/08/2026": {"fb": 0, "one": 0}}, "total_fb": 0, "total_one": 3}]};
 const SEMANAS = RAW.semanas;
 const MANAGERS = RAW.managers;
-const SEM_MAP = {"1° Sem 2026": ["29/12 a 02/01/2026", "05/01 a 09/01/2026", "12/01 a 16/01/2026", "19/01 a 23/01/2026", "26/01 a 30/01/2026", "02/02 a 06/02/2026", "09/02 a 13/02/2026", "16/02 a 20/02/2026", "23/02 a 27/02/2026", "02/03 a 06/03/2026", "09/03 a 13/03/2026", "16/03 a 20/03/2026", "23/03 a 27/03/2026", "30/03 a 03/04/2026", "06/04 a 10/04/2026", "13/04 a 17/04/2026", "20/04 a 24/04/2026", "27/04 a 01/05/2026", "04/05 a 08/05/2026", "11/05 a 15/05/2026", "18/05 a 22/05/2026", "25/05 a 29/05/2026", "01/06 a 05/06/2026", "08/06 a 12/06/2026", "15/06 a 19/06/2026", "22/06 a 26/06/2026"], "2° Sem 2026": ["29/06 a 03/07/2026", "06/07 a 10/07/2026", "13/07 a 17/07/2026", "20/07 a 24/07/2026", "27/07 a 31/07/2026", "03/08 a 07/08/2026"]};
-const MONTH_MAP = {"Janeiro": ["29/12 a 02/01/2026", "05/01 a 09/01/2026", "12/01 a 16/01/2026", "19/01 a 23/01/2026", "26/01 a 30/01/2026"], "Fevereiro": ["02/02 a 06/02/2026", "09/02 a 13/02/2026", "16/02 a 20/02/2026", "23/02 a 27/02/2026"], "Março": ["02/03 a 06/03/2026", "09/03 a 13/03/2026", "16/03 a 20/03/2026", "23/03 a 27/03/2026"], "Abril": ["30/03 a 03/04/2026", "06/04 a 10/04/2026", "13/04 a 17/04/2026", "20/04 a 24/04/2026"], "Maio": ["27/04 a 01/05/2026", "04/05 a 08/05/2026", "11/05 a 15/05/2026", "18/05 a 22/05/2026", "25/05 a 29/05/2026"], "Junho": ["01/06 a 05/06/2026", "08/06 a 12/06/2026", "15/06 a 19/06/2026", "22/06 a 26/06/2026"], "Julho": ["29/06 a 03/07/2026", "06/07 a 10/07/2026", "13/07 a 17/07/2026", "20/07 a 24/07/2026", "27/07 a 31/07/2026"], "Agosto": ["03/08 a 07/08/2026"]};
 
 const DIR_CFG = {
   'Guardiões': {color:'#E30000',bg:'#fff0f0',text:'#A32D2D'},
@@ -370,26 +430,36 @@ const DIR_CFG = {
   'Mentoria':  {color:'#E07000',bg:'#FFF0E0',text:'#7A3800'},
 };
 
-// Populate person select
+// Populate selects
+const fSemana = document.getElementById('fSemana');
+SEMANAS.forEach(s => { const o = document.createElement('option'); o.value=s; o.textContent=s; fSemana.appendChild(o); });
 const fPessoa = document.getElementById('fPessoa');
-[...MANAGERS].sort((a,b)=>a.name.localeCompare(b.name)).forEach(m=>{
-  const o=document.createElement('option'); o.value=m.full; o.textContent=m.name+' ('+m.diretoria+')'; fPessoa.appendChild(o);
+[...MANAGERS].sort((a,b)=>a.name.localeCompare(b.name)).forEach(m => {
+  const o = document.createElement('option'); o.value=m.full; o.textContent=m.name+' ('+m.diretoria+')'; fPessoa.appendChild(o);
 });
 
-let curSemana='all', curDir='all', curTableDir='all', mainView='overview';
+let curSemana='all', curDir='all', curTableDir='all';
 let evoChart=null;
+
+function getFiltered() {
+  let data = MANAGERS;
+  if(curDir!=='all') data=data.filter(m=>m.diretoria===curDir);
+  return data;
+}
 
 function getActiveSemanas() {
   const sem = document.getElementById('fSemestre').value;
   const mes = document.getElementById('fMes').value;
-  if (mes !== 'all') return MONTH_MAP[mes] || [];
-  if (sem !== 'all') return SEM_MAP[sem] || [];
+  const semana = document.getElementById('fSemana').value;
+  if(semana !== 'all') return [semana];
+  if(mes !== 'all') return MONTH_MAP[mes] || [];
+  if(sem !== 'all') return SEM_MAP[sem] || [];
   return SEMANAS;
 }
 
 function getFbOne(mgr, semana) {
-  if (semana === 'all') {
-    const active = getActiveSemanas();
+  const active = getActiveSemanas();
+  if(semana === 'all') {
     let fb=0, one=0;
     active.forEach(s=>{ const w=mgr.weekly[s]||{fb:0,one:0}; fb+=w.fb; one+=w.one; });
     return {fb, one};
@@ -397,65 +467,96 @@ function getFbOne(mgr, semana) {
   return mgr.weekly[semana] || {fb:0, one:0};
 }
 
-function getFiltered() {
-  return curDir==='all' ? MANAGERS : MANAGERS.filter(m=>m.diretoria===curDir);
-}
-
 function updateKPIs() {
   const data = getFiltered();
   let totalFb=0, totalOne=0, active=0;
-  data.forEach(m=>{ const v=getFbOne(m,curSemana); totalFb+=v.fb; totalOne+=v.one; if(v.fb>0||v.one>0) active++; });
-  const maxFb=Math.max(...MANAGERS.map(m=>getFbOne(m,'all').fb),1);
+  data.forEach(m => {
+    const v = getFbOne(m, curSemana);
+    totalFb+=v.fb; totalOne+=v.one;
+    if(v.fb>0||v.one>0) active++;
+  });
+  const maxFb = Math.max(...MANAGERS.map(m=>getFbOne(m,'all').fb),1);
   document.getElementById('kFb').textContent=totalFb;
+  document.getElementById('kFbMeta').textContent='feedbacks '+(curSemana==='all'?'no período completo':'na '+curSemana);
   document.getElementById('kFbBar').style.width=Math.min(100,Math.round(totalFb/maxFb*100))+'%';
   document.getElementById('kOne').textContent=totalOne;
+  document.getElementById('kOneMeta').textContent='1:1 '+(curSemana==='all'?'no período completo':'na '+curSemana);
   document.getElementById('kOneBar').style.width=Math.min(100,Math.round(totalOne/maxFb*100))+'%';
   document.getElementById('kActive').textContent=active+' / '+data.length;
+  document.getElementById('kActiveMeta').textContent='gestores com registro '+(curSemana==='all'?'':'nesta semana');
   document.getElementById('kActiveBar').style.width=Math.round(active/Math.max(data.length,1)*100)+'%';
 }
 
+const DIRS=['Guardiões','Camaleões','Fúria','Mentoria'];
+
 function buildEvoChart() {
+  // respect curDir filter
   const filtered = curDir==='all' ? MANAGERS : MANAGERS.filter(m=>m.diretoria===curDir);
-  const activeSem = getActiveSemanas();
-  const displaySem = activeSem.length <= 20 ? activeSem : activeSem;
-  const fbData  = displaySem.map(s=>{ let t=0; filtered.forEach(m=>t+=(m.weekly[s]||{fb:0}).fb); return t; });
-  const oneData = displaySem.map(s=>{ let t=0; filtered.forEach(m=>t+=(m.weekly[s]||{one:0}).one); return t; });
-  const selIdx  = curSemana==='all' ? -1 : displaySem.indexOf(curSemana);
-  const fbPt  = displaySem.map((_,i)=>i===selIdx?7:2);
-  const onePt = displaySem.map((_,i)=>i===selIdx?7:2);
-  const labels = displaySem.map(s=>s.split(' a ')[0]);
-  if (evoChart) {
-    evoChart.data.labels=labels;
-    evoChart.data.datasets[0].data=fbData; evoChart.data.datasets[0].pointRadius=fbPt;
-    evoChart.data.datasets[1].data=oneData; evoChart.data.datasets[1].pointRadius=onePt;
-    evoChart.update(); return;
+  const fbData=SEMANAS.map(s=>{ let t=0; filtered.forEach(m=>t+=getFbOne(m,s).fb); return t; });
+  const oneData=SEMANAS.map(s=>{ let t=0; filtered.forEach(m=>t+=getFbOne(m,s).one); return t; });
+  const shortLabels=SEMANAS.map(s=>s.split('–')[1]?.trim()||s);
+  // highlight selected week: bold point on selected semana
+  const selIdx = curSemana==='all' ? -1 : SEMANAS.indexOf(curSemana);
+  const fbPtRadius = SEMANAS.map((_,i)=> i===selIdx ? 7 : 3);
+  const onePtRadius = SEMANAS.map((_,i)=> i===selIdx ? 7 : 3);
+  if(evoChart){
+    evoChart.data.datasets[0].data=fbData;
+    evoChart.data.datasets[0].pointRadius=fbPtRadius;
+    evoChart.data.datasets[1].data=oneData;
+    evoChart.data.datasets[1].pointRadius=onePtRadius;
+    evoChart.update();
+    return;
   }
   evoChart=new Chart(document.getElementById('cEvo'),{
     type:'line',
-    data:{labels,datasets:[
-      {label:'Feedbacks',data:fbData,borderColor:'#E30000',backgroundColor:'rgba(227,0,0,.06)',tension:.4,fill:true,pointRadius:fbPt,pointBackgroundColor:'#E30000'},
-      {label:'1:1',data:oneData,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,.06)',tension:.4,fill:true,pointRadius:onePt,pointBackgroundColor:'#185FA5'},
+    data:{labels:shortLabels, datasets:[
+      {label:'Feedbacks',data:fbData,borderColor:'#E30000',backgroundColor:'rgba(227,0,0,.06)',tension:.4,fill:true,pointRadius:fbPtRadius,pointBackgroundColor:'#E30000'},
+      {label:'1:1',data:oneData,borderColor:'#185FA5',backgroundColor:'rgba(24,95,165,.06)',tension:.4,fill:true,pointRadius:onePtRadius,pointBackgroundColor:'#185FA5'},
     ]},
     options:{responsive:true,maintainAspectRatio:false,
       plugins:{legend:{display:false}},
       scales:{
-        x:{grid:{display:false},ticks:{font:{size:10,family:'Montserrat'},color:'#999',maxRotation:45,maxTicksLimit:16}},
-        y:{beginAtZero:true,ticks:{stepSize:1,font:{size:11,family:'Montserrat'},color:'#999'},grid:{color:'rgba(0,0,0,.05)'},border:{display:false}}
-      }}
+        x:{grid:{display:false},ticks:{font:{size:11,family:'Montserrat'},color:'#999'}},
+        y:{beginAtZero:true,ticks:{stepSize:2,font:{size:12,family:'Montserrat'},color:'#999'},grid:{color:'rgba(0,0,0,.05)'},border:{display:false}}
+      }
+    }
   });
 }
 
+function statusPill(fb,one) {
+  const total=fb+one;
+  if(total===0) return '<span class="pill pr">Sem registro</span>';
+  if(fb>0&&one>0) return '<span class="pill pg">Feedback + 1:1</span>';
+  if(fb>0) return '<span class="pill pa">Só feedback</span>';
+  return '<span class="pill pa">Só 1:1</span>';
+}
+
+function bar(val,color,max) {
+  const pct=max>0?Math.round(val/max*100):0;
+  return `<div class="mbar"><span class="mnum">${val}</span><span class="mtrack"><span class="mfill" style="width:${pct}%;background:${color}"></span></span></div>`;
+}
+
 function getCoverage(fullName, val) {
-  const n = fullName.toUpperCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Z\s]/g,'').replace(/\s+/g,' ').trim();
+  const n = fullName.toUpperCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ');
   const ts = TEAMS[n] || 0;
-  if (ts===0) return {pct:null, ts:0};
-  return {pct: Math.round(val/ts*100), ts};
+  if(ts === 0) return {pct: null, ts: 0};
+  return {pct: Math.min(100, Math.round(val / ts * 100)), ts};
+}
+
+function miniStat(val, color, max) {
+  const pct = max > 0 ? Math.round(val / max * 100) : 0;
+  return `<div style="display:flex;align-items:center;gap:6px">
+    <span style="font-size:13px;font-weight:600;color:${color};min-width:18px">${val}</span>
+    <div style="height:4px;border-radius:99px;background:var(--border);width:44px;flex-shrink:0">
+      <div style="height:4px;border-radius:99px;width:${pct}%;background:${color}"></div>
+    </div>
+  </div>`;
 }
 
 function realizacaoBadge(pct) {
-  const color=pct>=100?'#0F6E56':pct>=50?'#854F0B':'#A32D2D';
-  const bg=pct>=100?'#E3F5EE':pct>=50?'#FAEEDA':'#FCEBEB';
-  const barW=Math.min(100,pct);
+  const color = pct >= 100 ? '#0F6E56' : pct >= 50 ? '#854F0B' : '#A32D2D';
+  const bg    = pct >= 100 ? '#E3F5EE' : pct >= 50 ? '#FAEEDA' : '#FCEBEB';
+  const barW  = Math.min(100, pct); // bar capped at 100% visually, value shows real %
   return `<div style="display:flex;align-items:center;gap:6px">
     <span class="pill" style="background:${bg};color:${color};min-width:50px;text-align:center;font-size:12px;font-weight:700">${pct}%</span>
     <div style="height:6px;border-radius:99px;background:var(--border);width:50px;flex-shrink:0">
@@ -464,35 +565,44 @@ function realizacaoBadge(pct) {
   </div>`;
 }
 
-function statusPill(fb,one) {
-  const total=fb+one;
-  if(total===0) return '<span class="pill pr">Sem registro</span>';
-  if(fb>0&&one>0) return '<span class="pill pg">FB + 1:1</span>';
-  if(fb>0) return '<span class="pill pa">Só feedback</span>';
-  return '<span class="pill pa">Só 1:1</span>';
+function covBadge(pct) {
+  if(pct === null) return '<span style="color:var(--txt3);font-size:12px">—</span>';
+  const color = pct >= 80 ? '#0F6E56' : pct >= 50 ? '#854F0B' : '#A32D2D';
+  const bg    = pct >= 80 ? '#E3F5EE' : pct >= 50 ? '#FAEEDA' : '#FCEBEB';
+  return `<span class="pill" style="background:${bg};color:${color};min-width:42px;text-align:center">${pct}%</span>`;
 }
 
 function renderTable(dir) {
   curTableDir=dir;
-  let data=getFiltered();
+  let data = getFiltered();
   if(dir!=='all') data=data.filter(m=>m.diretoria===dir);
-  if(curSemana!=='all') data=data.filter(m=>{ const v=getFbOne(m,curSemana); return v.fb>0||v.one>0; });
   const maxFb=Math.max(...data.map(m=>getFbOne(m,curSemana).fb),1);
   const maxOne=Math.max(...data.map(m=>getFbOne(m,curSemana).one),1);
-  data=data.slice().sort((a,b)=>{ const av=getFbOne(a,curSemana),bv=getFbOne(b,curSemana); return (bv.fb+bv.one)-(av.fb+av.one); });
+  // When a specific semana is selected, only show managers with activity
+  if(curSemana !== 'all') {
+    data = data.filter(m => {
+      const v = getFbOne(m, curSemana);
+      return v.fb > 0 || v.one > 0;
+    });
+  }
+  data=data.slice().sort((a,b)=>{
+    const av=getFbOne(a,curSemana),bv=getFbOne(b,curSemana);
+    return (bv.fb+bv.one)-(av.fb+av.one);
+  });
   document.getElementById('tBody').innerHTML=data.map(m=>{
     const v=getFbOne(m,curSemana);
     const cfg=DIR_CFG[m.diretoria];
-    const covFb=getCoverage(m.full,v.fb);
-    const ts=covFb.ts;
-    const combinedPct=ts>0?Math.round((v.fb+v.one)/ts*100):null;
+    const covFb  = getCoverage(m.full, v.fb);
+    const covOne = getCoverage(m.full, v.one);
+    const ts = covFb.ts;
+    const combinedPct = ts > 0 ? Math.round((v.fb + v.one) / ts * 100) : null;
     return `<tr>
       <td><span class="mgr-name" onclick='openPerson(${JSON.stringify(m.full)})'>${m.name}</span></td>
       <td><span class="dbadge" style="background:${cfg.bg};color:${cfg.text}"><span class="ddot" style="background:${cfg.color}"></span>${m.diretoria}</span></td>
-      <td style="font-size:13px;font-weight:600;color:var(--txt2)">${ts>0?ts:'—'}</td>
+      <td style="font-size:13px;font-weight:600;color:var(--txt2)">${ts > 0 ? ts : '—'}</td>
       <td><span style="font-size:15px;font-weight:700;color:#E30000">${v.fb}</span></td>
       <td><span style="font-size:15px;font-weight:700;color:#185FA5">${v.one}</span></td>
-      <td>${combinedPct!==null?realizacaoBadge(combinedPct):'<span style="color:var(--txt3)">—</span>'}</td>
+      <td>${combinedPct !== null ? realizacaoBadge(combinedPct) : '<span style="color:var(--txt3)">—</span>'}</td>
       <td><span style="font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.03em">Gestor</span></td>
     </tr>`;
   }).join('');
@@ -512,33 +622,6 @@ function applyFilters() {
   renderTable(curTableDir);
 }
 
-function onSemestreChange() {
-  const sem=document.getElementById('fSemestre').value;
-  const sel=document.getElementById('fSemana');
-  const weeks=sem==='all'?SEMANAS:(SEM_MAP[sem]||[]);
-  sel.innerHTML='<option value="all">Todas as semanas</option>';
-  weeks.forEach(s=>{ const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
-  document.getElementById('fMes').innerHTML='<option value="all">Todos os meses</option>';
-  const mesesOrdem=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto'];
-  mesesOrdem.forEach(m=>{
-    if(!MONTH_MAP[m]) return;
-    const inSem=sem==='all'||weeks.some(w=>MONTH_MAP[m].includes(w));
-    if(inSem){ const o=document.createElement('option'); o.value=m; o.textContent=m; document.getElementById('fMes').appendChild(o); }
-  });
-  applyFilters();
-}
-
-function onMesChange() {
-  const mes=document.getElementById('fMes').value;
-  const sel=document.getElementById('fSemana');
-  const sem=document.getElementById('fSemestre').value;
-  const baseSem=sem==='all'?SEMANAS:(SEM_MAP[sem]||[]);
-  const weeks=mes==='all'?baseSem:(MONTH_MAP[mes]||[]);
-  sel.innerHTML='<option value="all">Todas as semanas</option>';
-  weeks.forEach(s=>{ const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
-  applyFilters();
-}
-
 function applyPersonFilter() {
   const val=document.getElementById('fPessoa').value;
   if(val!=='all') openPerson(val);
@@ -552,33 +635,53 @@ function openPerson(fullName) {
   document.getElementById('personSection').classList.add('on');
   const cfg=DIR_CFG[m.diretoria];
   const init=m.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-  document.getElementById('pHdr').innerHTML=`<div class="pav" style="background:${cfg.color}">${init}</div><div><div class="pname">${m.name}</div><div class="pmeta">${m.diretoria} · Gestor</div></div>`;
-  const covFbP=getCoverage(m.full,m.total_fb);
-  const covOneP=getCoverage(m.full,m.total_one);
-  const ts=covFbP.ts;
-  const combinedPctP=ts>0?Math.round((m.total_fb+m.total_one)/ts*100):null;
+  document.getElementById('pHdr').innerHTML=`
+    <div class="pav" style="background:${cfg.color}">${init}</div>
+    <div><div class="pname">${m.name}</div><div class="pmeta">${m.diretoria} · Gestor</div></div>`;
+  const covFbP = getCoverage(m.full, m.total_fb);
+  const covOneP = getCoverage(m.full, m.total_one);
+  const ts = covFbP.ts;
+  const combinedPctP = ts > 0 ? Math.round((m.total_fb + m.total_one) / ts * 100) : null;
+  const teamSzTxt = ts > 0 ? ts : '—';
   document.getElementById('pKpis').innerHTML=`
-    <div class="pkcard"><div class="pkval" style="color:#E30000">${m.total_fb}</div><div class="pklabel">Feedbacks</div>${covFbP.pct!==null?`<div style="margin-top:8px;font-size:12px;color:var(--txt2)">${covFbP.pct}% da equipe</div>`:''}</div>
-    <div class="pkcard"><div class="pkval" style="color:#185FA5">${m.total_one}</div><div class="pklabel">1:1 Realizados</div>${covOneP.pct!==null?`<div style="margin-top:8px;font-size:12px;color:var(--txt2)">${covOneP.pct}% da equipe</div>`:''}</div>
-    <div class="pkcard"><div class="pkval" style="color:${combinedPctP!==null?(combinedPctP>=100?'#0F6E56':combinedPctP>=50?'#854F0B':'#A32D2D'):'var(--txt)'}">${combinedPctP!==null?combinedPctP+'%':'—'}</div><div class="pklabel">Realização Total</div>${ts>0?`<div style="margin-top:8px;font-size:12px;color:var(--txt3)">${ts} vendedores na equipe</div>`:'<div style="margin-top:8px;font-size:12px;color:var(--txt3)">Diretor</div>'}</div>`;
-  const activeSemP=getActiveSemanas();
+    <div class="pkcard">
+      <div class="pkval" style="color:#E30000">${m.total_fb}</div>
+      <div class="pklabel">Feedbacks</div>
+      ${covFbP.pct!==null?`<div style="margin-top:8px;font-size:12px;color:var(--txt2)">${covFbP.pct}% da equipe</div>`:''}
+    </div>
+    <div class="pkcard">
+      <div class="pkval" style="color:#185FA5">${m.total_one}</div>
+      <div class="pklabel">1:1 Realizados</div>
+      ${covOneP.pct!==null?`<div style="margin-top:8px;font-size:12px;color:var(--txt2)">${covOneP.pct}% da equipe</div>`:''}
+    </div>
+    <div class="pkcard">
+      <div class="pkval" style="color:${combinedPctP!==null?(combinedPctP>=100?'#0F6E56':combinedPctP>=50?'#854F0B':'#A32D2D'):'var(--txt)'}">${combinedPctP!==null?combinedPctP+'%':'—'}</div>
+      <div class="pklabel">Realização Total</div>
+      ${ts>0?`<div style="margin-top:8px;font-size:12px;color:var(--txt3)">${ts} vendedores na equipe</div>`:'<div style="margin-top:8px;font-size:12px;color:var(--txt3)">Diretor / sem equipe direta</div>'}
+    </div>`;
+  const maxFb=Math.max(...SEMANAS.map(s=>m.weekly[s]?.fb||0),1);
+  const maxOne=Math.max(...SEMANAS.map(s=>m.weekly[s]?.one||0),1);
   document.getElementById('wDetail').innerHTML=`
-    <div style="font-size:14px;font-weight:700;margin-bottom:14px">Detalhe por semana</div>
-    <div style="display:grid;grid-template-columns:200px 1fr 1fr;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--border)">
+    <div style="font-size:14px;font-weight:600;margin-bottom:14px">Detalhe por semana</div>
+    <div class="wrow" style="padding-bottom:6px;border-bottom:1px solid var(--border)">
       <span style="font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.05em">Semana</span>
       <span style="font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.05em">Feedbacks</span>
       <span style="font-size:11px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:.05em">1:1</span>
     </div>
-    ${activeSemP.map(s=>{
+    ${SEMANAS.map(s=>{
       const w=m.weekly[s]||{fb:0,one:0};
-      const mfb=Math.max(...activeSemP.map(x=>(m.weekly[x]||{fb:0}).fb),1);
-      const mone=Math.max(...activeSemP.map(x=>(m.weekly[x]||{one:0}).one),1);
+      const fp=maxFb>0?Math.round(w.fb/maxFb*100):0;
+      const op=maxOne>0?Math.round(w.one/maxOne*100):0;
       return `<div class="wrow">
-        <span class="wlabel">${s}</span>
-        <div class="wcell" style="color:#E30000"><span style="min-width:20px">${w.fb}</span>
-          <div style="height:5px;border-radius:99px;background:var(--border);width:50px"><div style="height:5px;border-radius:99px;width:${Math.round(w.fb/mfb*100)}%;background:#E30000"></div></div></div>
-        <div class="wcell" style="color:#185FA5"><span style="min-width:20px">${w.one}</span>
-          <div style="height:5px;border-radius:99px;background:var(--border);width:50px"><div style="height:5px;border-radius:99px;width:${Math.round(w.one/mone*100)}%;background:#185FA5"></div></div></div>
+        <span class="wlabel">${s.split('–')[1]?.trim()||s}</span>
+        <div class="wcell" style="color:#E30000">
+          <span class="wnum">${w.fb}</span>
+          <span class="wtrack"><span class="wfill" style="width:${fp}%;background:#E30000"></span></span>
+        </div>
+        <div class="wcell" style="color:#185FA5">
+          <span class="wnum">${w.one}</span>
+          <span class="wtrack"><span class="wfill" style="width:${op}%;background:#185FA5"></span></span>
+        </div>
       </div>`;
     }).join('')}`;
 }
@@ -589,90 +692,188 @@ function closePersonView() {
   document.getElementById('fPessoa').value='all';
 }
 
-// PDI view
+
+// ── PDI VIEW ──
+let mainView = 'overview';
+
 function setMainView(view) {
-  mainView=view;
-  document.getElementById('btnVisao').classList.toggle('active',view==='overview');
-  document.getElementById('btnPdiView').classList.toggle('active',view==='pdi');
-  document.getElementById('overviewSection').style.display=view==='overview'?'block':'none';
-  document.getElementById('pdiMainSection').style.display=view==='pdi'?'block':'none';
-  const hide=view==='pdi';
-  ['fgSemana','fdiv1','fgMes','fdiv2','fgSemanaInner','fdiv3','fgDir','fdiv4','fgPessoa'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.style.display=hide?'none':'';
+  mainView = view;
+  document.getElementById('btnVisao').classList.toggle('active', view === 'overview');
+  document.getElementById('btnPdiView').classList.toggle('active', view === 'pdi');
+  document.getElementById('overviewSection').style.display = view === 'overview' ? 'block' : 'none';
+  document.getElementById('pdiMainSection').style.display = view === 'pdi' ? 'block' : 'none';
+  // Toggle global filters visibility
+  const hide = view === 'pdi';
+  ['fgSemana','fdivSemestre','fgSemestre','fdivSemana','fgSemanaInner','fdiv1','fgDir','fdiv2','fgPessoa'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.style.display = hide ? 'none' : '';
   });
-  if(view==='pdi'){ populatePdiGestorSelect(); renderPdiSection(); }
+  if (view === 'pdi') {
+    populatePdiGestorSelect();
+    renderPdiSection();
+  }
 }
 
 function populatePdiGestorSelect() {
-  const sel=document.getElementById('pdiGestor');
-  if(sel.options.length>1) return;
-  const allG=new Set([...Object.keys(PDI_DATA.pdi),...Object.keys(PDI_DATA.trilhas)]);
-  [...allG].sort().forEach(g=>{
-    const parts=g.split(' ').map(w=>w[0]+w.slice(1).toLowerCase());
-    const s=parts[0]+' '+parts[parts.length-1];
-    const o=document.createElement('option'); o.value=g; o.textContent=s; sel.appendChild(o);
+  const sel = document.getElementById('pdiGestor');
+  if(sel.options.length > 1) return; // already populated
+  const allG = new Set([...Object.keys(PDI_DATA.pdi), ...Object.keys(PDI_DATA.trilhas)]);
+  [...allG].sort().forEach(g => {
+    const gName = g.split(' ').map(w=>w[0]+w.slice(1).toLowerCase()).join(' ');
+    const parts = gName.split(' ');
+    const short = parts[0]+' '+parts[parts.length-1];
+    const o = document.createElement('option'); o.value=g; o.textContent=short; sel.appendChild(o);
   });
 }
 
-function progressBar(val,color,width=60){
-  return `<div style="display:flex;align-items:center;gap:6px"><span style="font-size:12px;font-weight:600;min-width:32px">${val}%</span><div style="height:5px;border-radius:99px;background:var(--border);width:${width}px;flex-shrink:0"><div style="height:5px;border-radius:99px;width:${Math.min(100,val)}%;background:${color}"></div></div></div>`;
+function renderPdiSection() {
+  const pdiType = document.getElementById('pdiType')?.value || 'all';
+  const pdiGestor = document.getElementById('pdiGestor')?.value || 'all';
+  const showPdi = pdiType === 'all' || pdiType === 'pdi';
+  const showTri = pdiType === 'all' || pdiType === 'trilhas';
+
+  // Filter by gestor if selected
+  const pdiRaw = PDI_DATA.pdi;
+  const triRaw = PDI_DATA.trilhas;
+  const pdi = pdiGestor === 'all' ? pdiRaw : Object.fromEntries(Object.entries(pdiRaw).filter(([k])=>k===pdiGestor));
+  const tri = pdiGestor === 'all' ? triRaw : Object.fromEntries(Object.entries(triRaw).filter(([k])=>k===pdiGestor));
+
+  // KPIs
+  let totalPdiColab = 0, totalTriColab = 0, progArr = [];
+  if(showPdi) Object.values(pdi).forEach(d => { totalPdiColab += d.total; progArr.push(d.prog); });
+  if(showTri) Object.values(tri).forEach(d => { totalTriColab += d.total; progArr.push(d.prog); });
+  // Show/hide KPI cards and table blocks
+  document.querySelectorAll('#pdiKpiGrid .kcard')[0].style.display = showPdi ? '' : 'none';
+  document.querySelectorAll('#pdiKpiGrid .kcard')[1].style.display = showTri ? '' : 'none';
+  const avgProg = progArr.length ? Math.round(progArr.reduce((a,b)=>a+b,0)/progArr.length) : 0;
+
+  document.getElementById('kPdiTotal').textContent = totalPdiColab;
+  document.getElementById('kPdiBar').style.width = Math.min(100, totalPdiColab * 8) + '%';
+  document.getElementById('kTriTotal').textContent = totalTriColab;
+  document.getElementById('kTriBar').style.width = Math.min(100, totalTriColab * 4) + '%';
+  document.getElementById('kPdiProg').textContent = avgProg + '%';
+  document.getElementById('kPdiProgBar').style.width = avgProg + '%';
+
+  // PDI table
+  document.getElementById('pdiTableBody').closest('.tcard').style.display = showPdi ? '' : 'none';
+  const pdiRows = Object.entries(pdi).sort((a,b) => b[1].prog - a[1].prog);
+  document.getElementById('pdiTableBody').innerHTML = pdiRows.map(([g, d]) => {
+    const name = g.split(' ').map(w=>w[0]+w.slice(1).toLowerCase()).join(' ').split(' ');
+    const short = name[0]+' '+name[name.length-1];
+    const statusHtml = d.atrasados > 0
+      ? `<span class="pill pr">${d.atrasados} atrasado${d.atrasados>1?'s':''}</span>`
+      : d.concluidos === d.total
+        ? `<span class="pill pg">Todos concluídos</span>`
+        : `<span class="pill pa">${d.em_andamento} em andamento</span>`;
+    return `<tr>
+      <td style="font-weight:500">${short}</td>
+      <td>${d.total}</td>
+      <td>${progressBar(d.prog, '#7C3AED')}</td>
+      <td>${statusHtml}</td>
+    </tr>`;
+  }).join('');
+
+  // Trilhas table
+  document.getElementById('triTableBody').closest('.tcard').style.display = showTri ? '' : 'none';
+  const triRows = Object.entries(tri).sort((a,b) => b[1].prog - a[1].prog);
+  document.getElementById('triTableBody').innerHTML = triRows.map(([g, d]) => {
+    const name = g.split(' ').map(w=>w[0]+w.slice(1).toLowerCase()).join(' ').split(' ');
+    const short = name[0]+' '+name[name.length-1];
+    return `<tr>
+      <td style="font-weight:500">${short}</td>
+      <td>${d.total}</td>
+      <td>${progressBar(d.prog, '#E07000')}</td>
+      <td><span class="pill ${d.concluidas===d.total&&d.total>0?'pg':'pa'}">${d.concluidas}/${d.total}</span></td>
+    </tr>`;
+  }).join('');
+
+  // Detail cards per gestor (union of PDI+Trilhas gestores)
+  const allG = new Set([
+    ...(showPdi ? Object.keys(pdi) : []),
+    ...(showTri ? Object.keys(tri) : [])
+  ]);
+  const grid = document.getElementById('pdiDetailGrid');
+  grid.innerHTML = [...allG].sort().map(g => {
+    const pdiD = pdi[g];
+    const triD = tri[g];
+    const gName = g.split(' ').map(w=>w[0]+w.slice(1).toLowerCase()).join(' ');
+    const gShort = gName.split(' ');
+    const displayName = gShort[0]+' '+gShort[gShort.length-1];
+
+    let pdiHtml = '';
+    if (showPdi && pdiD && pdiD.colabs) {
+      pdiHtml = `<div style="margin-bottom:10px">
+        <div style="font-size:11px;font-weight:600;color:#7C3AED;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">PDI Individual</div>
+        ${pdiD.colabs.map(c => `
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:12px;font-weight:500">${c.nome.split(' ')[0]} ${c.nome.split(' ').pop()}</span>
+            <div style="display:flex;align-items:center;gap:8px">
+              ${progressBar(c.progresso, '#7C3AED', 50)}
+              <span class="pill ${c.status==='Concluído'?'pg':c.status==='Atrasado'?'pr':'pa'}" style="font-size:10px">${c.status}</span>
+            </div>
+          </div>`).join('')}
+      </div>`;
+    }
+
+    let triHtml = '';
+    if (showTri && triD && triD.colabs) {
+      triHtml = `<div>
+        <div style="font-size:11px;font-weight:600;color:#E07000;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Trilhas</div>
+        ${triD.colabs.map(c => `
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:12px;font-weight:500">${c.nome.split(' ')[0]} ${c.nome.split(' ').pop()}</span>
+            <div style="display:flex;align-items:center;gap:8px">
+              ${progressBar(c.progresso, '#E07000', 50)}
+              <span style="font-size:11px;color:var(--txt3)">${c.trilhas_ok}/${c.trilhas} trilhas</span>
+            </div>
+          </div>`).join('')}
+      </div>`;
+    }
+
+    return `<div style="background:var(--bg);border-radius:var(--r-md);padding:12px 14px">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #E30000">${displayName}</div>
+      ${pdiHtml}${triHtml}
+    </div>`;
+  }).join('');
 }
 
-function renderPdiSection() {
-  const pdiType=document.getElementById('pdiType')?.value||'all';
-  const pdiGestor=document.getElementById('pdiGestor')?.value||'all';
-  const showPdi=pdiType==='all'||pdiType==='pdi';
-  const showTri=pdiType==='all'||pdiType==='trilhas';
-  const pdi=pdiGestor==='all'?PDI_DATA.pdi:Object.fromEntries(Object.entries(PDI_DATA.pdi).filter(([k])=>k===pdiGestor));
-  const tri=pdiGestor==='all'?PDI_DATA.trilhas:Object.fromEntries(Object.entries(PDI_DATA.trilhas).filter(([k])=>k===pdiGestor));
-  let totalPdi=0, totalTri=0, progArr=[];
-  if(showPdi) Object.values(pdi).forEach(d=>{totalPdi+=d.total; progArr.push(d.prog);});
-  if(showTri) Object.values(tri).forEach(d=>{totalTri+=d.total; progArr.push(d.prog);});
-  const avgProg=progArr.length?Math.round(progArr.reduce((a,b)=>a+b,0)/progArr.length):0;
-  document.getElementById('kPdiTotal').textContent=totalPdi;
-  document.getElementById('kPdiBar').style.width=Math.min(100,totalPdi*8)+'%';
-  document.getElementById('kTriTotal').textContent=totalTri;
-  document.getElementById('kTriBar').style.width=Math.min(100,totalTri*4)+'%';
-  document.getElementById('kPdiProg').textContent=avgProg+'%';
-  document.getElementById('kPdiProgBar').style.width=avgProg+'%';
-  document.getElementById('pdiTableWrap').style.display=showPdi?'':'none';
-  document.getElementById('triTableWrap').style.display=showTri?'':'none';
-  const pdiRows=Object.entries(pdi).sort((a,b)=>b[1].prog-a[1].prog);
-  document.getElementById('pdiTableBody').innerHTML=pdiRows.map(([g,d])=>{
-    const nm=g.split(' ').map(w=>w[0]+w.slice(1).toLowerCase()); const s=nm[0]+' '+nm[nm.length-1];
-    const st=d.atrasados>0?`<span class="pill pr">${d.atrasados} atrasado${d.atrasados>1?'s':''}</span>`:d.concluidos===d.total?`<span class="pill pg">Concluídos</span>`:`<span class="pill pa">${d.em_andamento} andamento</span>`;
-    return `<tr><td style="font-weight:500">${s}</td><td>${d.total}</td><td>${progressBar(d.prog,'#7C3AED')}</td><td>${st}</td></tr>`;
-  }).join('');
-  const triRows=Object.entries(tri).sort((a,b)=>b[1].prog-a[1].prog);
-  document.getElementById('triTableBody').innerHTML=triRows.map(([g,d])=>{
-    const nm=g.split(' ').map(w=>w[0]+w.slice(1).toLowerCase()); const s=nm[0]+' '+nm[nm.length-1];
-    return `<tr><td style="font-weight:500">${s}</td><td>${d.total}</td><td>${progressBar(d.prog,'#E07000')}</td><td><span class="pill ${d.concluidas===d.total&&d.total>0?'pg':'pa'}">${d.concluidas}/${d.total}</span></td></tr>`;
-  }).join('');
-  const allG=new Set([...(showPdi?Object.keys(pdi):[]),...(showTri?Object.keys(tri):[])]);
-  document.getElementById('pdiDetailGrid').innerHTML=[...allG].sort().map(g=>{
-    const pdiD=pdi[g], triD=tri[g];
-    const gName=g.split(' ').map(w=>w[0]+w.slice(1).toLowerCase()).join(' ');
-    const gShort=gName.split(' '); const dn=gShort[0]+' '+gShort[gShort.length-1];
-    let pdiHtml='';
-    if(showPdi&&pdiD?.colabs){
-      pdiHtml=`<div style="margin-bottom:10px"><div style="font-size:11px;font-weight:600;color:#7C3AED;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">PDI Individual</div>
-      ${pdiD.colabs.map(c=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)">
-        <span style="font-size:12px;font-weight:500">${c.nome.split(' ')[0]} ${c.nome.split(' ').pop()}</span>
-        <div style="display:flex;align-items:center;gap:8px">${progressBar(c.progresso,'#7C3AED',50)}<span class="pill ${c.status==='Concluído'?'pg':c.status==='Atrasado'?'pr':'pa'}" style="font-size:10px">${c.status}</span></div>
-      </div>`).join('')}</div>`;
-    }
-    let triHtml='';
-    if(showTri&&triD?.colabs){
-      triHtml=`<div><div style="font-size:11px;font-weight:600;color:#E07000;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Trilhas</div>
-      ${triD.colabs.map(c=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)">
-        <span style="font-size:12px;font-weight:500">${c.nome.split(' ')[0]} ${c.nome.split(' ').pop()}</span>
-        <div style="display:flex;align-items:center;gap:8px">${progressBar(c.progresso,'#E07000',50)}<span style="font-size:11px;color:var(--txt3)">${c.trilhas_ok}/${c.trilhas}</span></div>
-      </div>`).join('')}</div>`;
-    }
-    return `<div style="background:var(--bg);border-radius:var(--r-md);padding:12px 14px">
-      <div style="font-size:13px;font-weight:700;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #E30000">${dn}</div>
-      ${pdiHtml}${triHtml}</div>`;
-  }).join('');
+function progressBar(val, color, width) {
+  width = width || 60;
+  return `<div style="display:flex;align-items:center;gap:6px">
+    <span style="font-size:12px;font-weight:600;min-width:32px">${val}%</span>
+    <div style="height:5px;border-radius:99px;background:var(--border);width:${width}px;flex-shrink:0">
+      <div style="height:5px;border-radius:99px;width:${Math.min(100,val)}%;background:${color}"></div>
+    </div>
+  </div>`;
+}
+
+
+// ── MONTH / WEEK FILTER ──
+const SEM_MAP = {"1° Sem 2026": ["29/12 a 02/01/2026", "05/01 a 09/01/2026", "12/01 a 16/01/2026", "19/01 a 23/01/2026", "26/01 a 30/01/2026", "02/02 a 06/02/2026", "09/02 a 13/02/2026", "16/02 a 20/02/2026", "23/02 a 27/02/2026", "02/03 a 06/03/2026", "09/03 a 13/03/2026", "16/03 a 20/03/2026", "23/03 a 27/03/2026", "30/03 a 03/04/2026", "06/04 a 10/04/2026", "13/04 a 17/04/2026", "20/04 a 24/04/2026", "27/04 a 01/05/2026", "04/05 a 08/05/2026", "11/05 a 15/05/2026", "18/05 a 22/05/2026", "25/05 a 29/05/2026", "01/06 a 05/06/2026", "08/06 a 12/06/2026", "15/06 a 19/06/2026", "22/06 a 26/06/2026"], "2° Sem 2026": ["29/06 a 03/07/2026", "06/07 a 10/07/2026", "13/07 a 17/07/2026", "20/07 a 24/07/2026", "27/07 a 31/07/2026", "03/08 a 07/08/2026"]};
+const MONTH_MAP = {"Janeiro": ["29/12 a 02/01/2026", "05/01 a 09/01/2026", "12/01 a 16/01/2026", "19/01 a 23/01/2026", "26/01 a 30/01/2026"], "Fevereiro": ["02/02 a 06/02/2026", "09/02 a 13/02/2026", "16/02 a 20/02/2026", "23/02 a 27/02/2026"], "Março": ["02/03 a 06/03/2026", "09/03 a 13/03/2026", "16/03 a 20/03/2026", "23/03 a 27/03/2026"], "Abril": ["30/03 a 03/04/2026", "06/04 a 10/04/2026", "13/04 a 17/04/2026", "20/04 a 24/04/2026"], "Maio": ["27/04 a 01/05/2026", "04/05 a 08/05/2026", "11/05 a 15/05/2026", "18/05 a 22/05/2026", "25/05 a 29/05/2026"], "Junho": ["01/06 a 05/06/2026", "08/06 a 12/06/2026", "15/06 a 19/06/2026", "22/06 a 26/06/2026"], "Julho": ["29/06 a 03/07/2026", "06/07 a 10/07/2026", "13/07 a 17/07/2026", "20/07 a 24/07/2026", "27/07 a 31/07/2026"], "Agosto": ["03/08 a 07/08/2026"]}
+
+function onSemestreChange() {
+  const sem = document.getElementById('fSemestre').value;
+  const sel = document.getElementById('fSemana');
+  const mesSel = document.getElementById('fMes');
+  // Reset month
+  mesSel.value = 'all';
+  // Repopulate semana options
+  const weeks = sem === 'all' ? SEMANAS : (SEM_MAP[sem] || []);
+  sel.innerHTML = '<option value="all">Todas as semanas</option>';
+  weeks.forEach(s => { const o = document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+  applyFilters();
+}
+
+function onMesChange() {
+  const mes = document.getElementById('fMes').value;
+  const sem = document.getElementById('fSemestre').value;
+  const sel = document.getElementById('fSemana');
+  const baseSem = sem === 'all' ? SEMANAS : (SEM_MAP[sem] || []);
+  const weeks = mes === 'all' ? baseSem : (MONTH_MAP[mes] || []);
+  sel.innerHTML = '<option value="all">Todas as semanas</option>';
+  weeks.forEach(s => { const o = document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+  applyFilters();
 }
 
 // Init
